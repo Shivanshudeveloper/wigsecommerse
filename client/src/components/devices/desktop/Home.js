@@ -42,7 +42,7 @@ const ex3 = {
 };
 
 const ex28 = {
-  height: "108vh",
+  height: "120vh",
   overflow: "auto",
   marginBottom: "2vh",
 };
@@ -802,15 +802,284 @@ const Home = ({ location }) => {
                     marginBottom: "6px",
                   }}
                 />
+                      <h3>Category Filter</h3>
+                      <hr
+                        style={{
+                          borderTop: "3px solid #000000",
+                          marginTop: "6px",
+                          marginBottom: "6px",
+                        }}
+                      />
+                      <div>
+                        <h4>Hair Origin</h4>
+                        <hr
+                          style={{
+                            borderTop: "0.5px solid #808080",
+                            marginTop: "2px",
+                            marginBottom: "2px",
+                          }}
+                        />
+                        {
+                          ["Brazilian Hair", "Cambodian Hair", "European Hair", "Indian Hair", "Malaysian Hair", "Mongolian Hair", "Peruvian Hair", "Vietnamese Hair", "Synthetic Hair"].map(type => {
+                            return <><h5>{type}</h5>
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                {["Product Type", "Texture"].map(brand => (
+                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
+                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
+                                    <span>{brand}</span>
+                                  </div>
+                                ))}
+                              </div></>
+                          })
+                        }
+                      </div>
+                      <hr
+                        style={{
+                          borderTop: "1px solid #000000",
+                          marginTop: "6px",
+                          marginBottom: "6px",
+                        }}
+                      />
+                      <div>
+                        <h4>Hair Texture</h4>
+                        <hr
+                          style={{
+                            borderTop: "0.5px solid #808080",
+                            marginTop: "2px",
+                            marginBottom: "2px",
+                          }}
+                        />
+                        {
+                          ["Body Wave", "Deep Wave", "Loose Deep Wave", "Loose Wave", "Natural Wave", "Kinky Wave", "Jerry Wave", "Deep Wave", "Kinky Straight", "Afro Hair"].map(type => {
+                            return <><h5>{type}</h5>
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                {["Product Type", "Origin"].map(brand => (
+                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
+                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
+                                    <span>{brand}</span>
+                                  </div>
+                                ))}
+                              </div></>
+                          })
+                        }
+                      </div>
+                      <hr
+                        style={{
+                          borderTop: "1px solid #000000",
+                          marginTop: "6px",
+                          marginBottom: "6px",
+                        }}
+                      />
+                      <div>
+                        <h4>Closures</h4>
+                        <hr
+                          style={{
+                            borderTop: "0.5px solid #808080",
+                            marginTop: "2px",
+                            marginBottom: "2px",
+                          }}
+                        />
+                        {
+                          ["4*4", "5*5", "6*6", "7*7"].map(type => {
+                            return <><h5>{type}</h5>
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                {["Origin", "Texture", "Base Material", "Lace Type", "Preplucked", "Bleached knots", "Bleached knots", "Parting"].map(brand => (
+                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
+                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
+                                    <span>{brand}</span>
+                                  </div>
+                                ))}
+                              </div></>
+                          })
+                        }
+                      </div>
+                      <hr
+                        style={{
+                          borderTop: "1px solid #000000",
+                          marginTop: "6px",
+                          marginBottom: "6px",
+                        }}
+                      />
+                      <div>
+                        <h4>Frontals</h4>
+                        <hr
+                          style={{
+                            borderTop: "0.5px solid #808080",
+                            marginTop: "2px",
+                            marginBottom: "2px",
+                          }}
+                        />
+                        {
+                          ["13*4", "13*6", "360"].map(type => {
+                            return <><h5>{type}</h5>
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                {["Origin", "Texture", "Base Material", "Lace Type", "Preplucked", "Bleached knots", "Bleached knots", "Parting"].map(brand => (
+                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
+                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
+                                    <span>{brand}</span>
+                                  </div>
+                                ))}
+                              </div></>
+                          })
+                        }
+                      </div>
+                      <hr
+                        style={{
+                          borderTop: "1px solid #000000",
+                          marginTop: "6px",
+                          marginBottom: "6px",
+                        }}
+                      />
+                      <div>
+                        <h4>Bundles With Closures</h4>
+                        <hr
+                          style={{
+                            borderTop: "0.5px solid #808080",
+                            marginTop: "2px",
+                            marginBottom: "2px",
+                          }}
+                        />
+                        {
+                          ["4*4 & Single Bundle", "5*5 & Single Bundle", "6*6 & Single Bundle", "7*7 & Single Bundle",
+                            "4*4 & 2 Bundles", "5*5 & 2 Bundles", "6*6 & 2 Bundles", "7*7 & 2 Bundles",
+                            "4*4 & 3 Bundles", "5*5 & 3 Bundles", "6*6 & 3 Bundles", "7*7 & 3 Bundles",
+                            "4*4 & 4 Bundles", "5*5 & 4 Bundles", "6*6 & 4 Bundles", "7*7 & 4 Bundles"
+                          ].map(type => {
+                            return <><h5>{type}</h5>
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                {["Origin", "Texture", "Base Material", "Lace Type", "Preplucked", "Bleached knots", "Bleached knots", "Parting"].map(brand => (
+                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
+                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
+                                    <span>{brand}</span>
+                                  </div>
+                                ))}
+                              </div></>
+                          })
+                        }
+                      </div>
+                      <hr
+                        style={{
+                          borderTop: "1px solid #000000",
+                          marginTop: "6px",
+                          marginBottom: "6px",
+                        }}
+                      />
+                      <div>
+                        <h4>Bundles</h4>
+                        <hr
+                          style={{
+                            borderTop: "0.5px solid #808080",
+                            marginTop: "2px",
+                            marginBottom: "2px",
+                          }}
+                        />
+                        {
+                          ["Single Bundle", "2 Bundles", "3 Bundles", "4 Bundles"].map(type => {
+                            return <><h5>{type}</h5>
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                {["Origin", "Texture"].map(brand => (
+                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
+                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
+                                    <span>{brand}</span>
+                                  </div>
+                                ))}
+                              </div></>
+                          })
+                        }
+                      </div>
+                      <hr
+                        style={{
+                          borderTop: "1px solid #000000",
+                          marginTop: "6px",
+                          marginBottom: "6px",
+                        }}
+                      />
+                      <div>
+                        <h4>Wigs</h4>
+                        <hr
+                          style={{
+                            borderTop: "0.5px solid #808080",
+                            marginTop: "2px",
+                            marginBottom: "2px",
+                          }}
+                        />
+                        {
+                          ["U Part"].map(type => {
+                            return <><h5>{type}</h5>
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                {["Origin", "Texture"].map(brand => (
+                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
+                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
+                                    <span>{brand}</span>
+                                  </div>
+                                ))}
+                              </div></>
+                          })
+                        }
+                        {
+
+                          ["Closure Wings", "Frontal Wings"].map(type => {
+                              return <><h5>{type}</h5>
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                              {["Origin", "Texture", "Lace Type", "Closure Type", "Preplucked", "Bleached Knots", "Baby Hairs", "Density"].map(brand => (
+                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
+                                  <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
+                                  <span>{brand}</span>
+                                </div>
+                              ))}
+                            </div></>
+                        })
+                        }
+                      </div>
+                      <hr
+                        style={{
+                          borderTop: "1px solid #000000",
+                          marginTop: "6px",
+                          marginBottom: "6px",
+                        }}
+                      />
+                      <div>
+                        <h4>More Extensions</h4>
+                        <hr
+                          style={{
+                            borderTop: "0.5px solid #808080",
+                            marginTop: "2px",
+                            marginBottom: "2px",
+                          }}
+                        />
+                        {
+                          ["Clip Ins", "Ponytails", "Microlinks", "Nano Rings"].map(type => {
+                            return <><h5>{type}</h5>
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                {["Origin", "Texture"].map(brand => (
+                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
+                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
+                                    <span>{brand}</span>
+                                  </div>
+                                ))}
+                              </div></>
+                          })
+                        }
+                      </div>
+                      <hr
+                        style={{
+                          borderTop: "1px solid #000000",
+                          marginTop: "6px",
+                          marginBottom: "6px",
+                        }}
+                      />
+
               </Card>
+              <div style={{marginTop: "20px"}}></div>
             </Grid>
             <Grid item xs={9}>
-              <Grid container spacing={2}>
+              <Grid container spacing={3}>
                 {showProductList()}
               </Grid>
             </Grid>
-          </Grid>
+            </Grid>
         </div>
+        
       </Container>
       <Footer />
     </div>
