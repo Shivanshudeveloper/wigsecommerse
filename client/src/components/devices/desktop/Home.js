@@ -92,6 +92,11 @@ const useStyles = makeStyles((theme) => ({
   gridroot: {
     flexGrow: 1,
   },
+  inputfield:{
+    padding: "5px 45px",
+ 
+    borderRadius: "7px",
+  }
 }));
 
 function valuetext(value) {
@@ -1061,6 +1066,38 @@ const Home = ({ location }) => {
                           })
                         }
                       </div>
+                      <div>
+                        <h4>Closure Wigs</h4>
+                        <hr
+                          style={{
+                            borderTop: "0.5px solid #808080",
+                            marginTop: "2px",
+                            marginBottom: "2px",
+                          }}
+                        />
+                        {
+                          ["4 x 4 Closure Wigs", "5 x 5 Closure Wigs", "6 x 6 Closure Wigs"].map(type => {
+                            return <>
+        
+                            <h5 style={{ margin: '10px' }}>{type}</h5>
+                            
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                  <div style={{ margin: '0 10px' }}>
+                                  <select name="" id="" className={classes.inputfield}>
+                                    <option value="volvo">Origin</option>
+                                    <option value="saab">Texture</option>
+                                    <option value="mercedes">Lace Type</option>
+                                    <option value="audi">Bleached knots</option>
+                                    <option value="audi">Baby hairs</option>
+                                    <option value="audi">Parting</option>
+                                    <option value="audi">Density</option>
+                                  </select>
+                                    
+                                  </div>
+                              </div></>
+                          })
+                        }
+                      </div>
                       <hr
                         style={{
                           borderTop: "1px solid #000000",
@@ -1068,6 +1105,63 @@ const Home = ({ location }) => {
                           marginBottom: "6px",
                         }}
                       />
+                      <div>
+                        <h4>Frontal Wigs</h4>
+                        <hr
+                          style={{
+                            borderTop: "0.5px solid #808080",
+                            marginTop: "2px",
+                            marginBottom: "2px",
+                          }}
+                        />
+
+                            <h5 style={{ margin: '10px' }}>Lace Front Wigs</h5>
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                  <div style={{ margin: '0 10px' }}>
+                                  <select name="" id="" className={classes.inputfield}>
+                                    <option value="volvo">Origin</option>
+                                    <option value="saab">Texture</option>
+                                    <option value="mercedes">Lace Type</option>
+                                    <option value="audi">Frontal size</option>
+                                    <option value="audi">Preplucked</option>
+                                    <option value="audi">Bleached knots</option>
+                                    <option value="audi">Baby hairs</option>
+                                    <option value="audi">Density</option>
+                                  </select>
+                                  </div>
+                              </div>
+
+                          {
+                          ["Full Lace Wigs","360"].map(type => {
+                            return <>
+        
+                            <h5 style={{ margin: '10px' }}>{type}</h5>
+                            
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                  <div style={{ margin: '0 10px' }}>
+                                  <select name="" id="" className={classes.inputfield} >
+                                    <option value="volvo">Origin</option>
+                                    <option value="saab">Texture</option>
+                                    <option value="mercedes">Lace Type</option>
+                                    <option value="audi">Preplucked</option>
+                                    <option value="audi">Bleached knots</option>
+                                    <option value="audi">Baby hairs</option>
+                                    <option value="audi">Density</option>
+                                  </select>
+                                    
+                                  </div>
+                              </div></>
+                          })
+                        }
+                      </div>
+                      <hr
+                        style={{
+                          borderTop: "1px solid #000000",
+                          marginTop: "6px",
+                          marginBottom: "6px",
+                        }}
+                      />
+                      
 
               </Card>
               <div style={{marginTop: "20px"}}></div>
