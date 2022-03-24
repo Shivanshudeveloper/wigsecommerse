@@ -164,6 +164,7 @@ const Home = ({ location }) => {
   const [filter, setfilter] = React.useState("");
   const [load, setLoad] = React.useState(true);
   const [brands, setBrands] = React.useState([]);
+  const [priceRef, setPriceRef] = React.useState(false);
 
   const [openDialog, setOpenDialog] = React.useState(false);
   const handleClickOpenDialog = () => {
@@ -486,10 +487,278 @@ const Home = ({ location }) => {
                   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                     {Array.from(brands).map(brand => (
                       <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
-                        <input type="checkbox" defaultChecked={filter?.brand == brand} onClick={() => {setLoad(true)}} onChange={(e) => e.target.checked === true ? window.history.pushState(window.location.pathname, window.location.pathname, window.location.pathname + (window.location.pathname.includes("?") ?  `&brand=${brand}` : `?brand=${brand}`)) : null} style={{ marginRight: '5px' }}/>
+                        <input type="checkbox" defaultChecked={filter?.brand == brand} onClick={function (e) {
+                          if (e.target.checked) {
+                            const filters = filter;
+                            filters.brand = brand;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          } else {
+                            const filters = filter;
+                            delete filters.brand;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          }
+                        }} style={{ marginRight: '5px' }} />
                         <span>{brand}</span>
                       </div>
                     ))}
+                  </div>
+                </div>
+                <hr
+                  style={{
+                    borderTop: "1px solid #000000",
+                    marginTop: "6px",
+                    marginBottom: "6px",
+                  }}
+                />
+                <div>
+                  <h4>Color</h4>
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    {Array.from(new Set(["Jet black", "Natural black", "Brown", "Blonde", "Red", "Burgundy"])).map(color => (
+                      <div style={{ margin: '0 10px' }} key={color + (Math.random() * 10000)}>
+                        <input type="checkbox" defaultChecked={filter?.color == color.toLowerCase()} onClick={function (e) {
+                          if (e.target.checked) {
+                            const filters = filter;
+                            filters.color = color.toLowerCase();
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          } else {
+                            const filters = filter;
+                            delete filters.color;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          }
+                        }} style={{ marginRight: '5px' }} />
+                        <span>{color}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <hr
+                  style={{
+                    borderTop: "1px solid #000000",
+                    marginTop: "6px",
+                    marginBottom: "6px",
+                  }}
+                />
+                <div>
+                  <h4>Ship From</h4>
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    {Array.from(new Set(["UK", "USA", "China", "France"])).map(shipfrom => (
+                      <div style={{ margin: '0 10px' }} key={shipfrom + (Math.random() * 10000)}>
+                        <input type="checkbox" defaultChecked={filter?.shipfrom == shipfrom} onClick={function (e) {
+                          if (e.target.checked) {
+                            const filters = filter;
+                            filters.shipfrom = shipfrom;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          } else {
+                            const filters = filter;
+                            delete filters.shipfrom;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          }
+                        }} style={{ marginRight: '5px' }} />
+                        <span>{shipfrom}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <hr
+                  style={{
+                    borderTop: "1px solid #000000",
+                    marginTop: "6px",
+                    marginBottom: "6px",
+                  }}
+                />
+                <div>
+                  <h4>Free Shipping</h4>
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    {Array.from(new Set(["Yes"])).map(freeshipping => (
+                      <div style={{ margin: '0 10px' }} key={freeshipping + (Math.random() * 10000)}>
+                        <input type="checkbox" defaultChecked={filter?.freeshipping == freeshipping} onClick={function (e) {
+                          if (e.target.checked) {
+                            const filters = filter;
+                            filters.freeshipping = freeshipping;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          } else {
+                            const filters = filter;
+                            delete filters.freeshipping;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          }
+                        }} style={{ marginRight: '5px' }} />
+                        <span>{freeshipping}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <hr
+                  style={{
+                    borderTop: "1px solid #000000",
+                    marginTop: "6px",
+                    marginBottom: "6px",
+                  }}
+                />
+                <div>
+                  <h4>Free Return</h4>
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    {Array.from(new Set(["Yes"])).map(freereturn => (
+                      <div style={{ margin: '0 10px' }} key={freereturn + (Math.random() * 10000)}>
+                        <input type="checkbox" defaultChecked={filter?.freereturn == freereturn} onClick={function (e) {
+                          if (e.target.checked) {
+                            const filters = filter;
+                            filters.freereturn = freereturn;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          } else {
+                            const filters = filter;
+                            delete filters.freereturn;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          }
+                        }} style={{ marginRight: '5px' }} />
+                        <span>{freereturn}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <hr
+                  style={{
+                    borderTop: "1px solid #000000",
+                    marginTop: "6px",
+                    marginBottom: "6px",
+                  }}
+                />
+                <div>
+                  <h4>On Sale</h4>
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    {Array.from(new Set(["Yes"])).map(onsale => (
+                      <div style={{ margin: '0 10px' }} key={onsale + (Math.random() * 10000)}>
+                        <input type="checkbox" defaultChecked={filter?.onsale == onsale} onClick={function (e) {
+                          if (e.target.checked) {
+                            const filters = filter;
+                            filters.onsale = onsale;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          } else {
+                            const filters = filter;
+                            delete filters.onsale;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          }
+                        }} style={{ marginRight: '5px' }} />
+                        <span>{onsale}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <hr
+                  style={{
+                    borderTop: "1px solid #000000",
+                    marginTop: "6px",
+                    marginBottom: "6px",
+                  }}
+                />
+                <div>
+                  <h4>In Stock</h4>
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    {Array.from(new Set(["Yes"])).map(instocks => (
+                      <div style={{ margin: '0 10px' }} key={instocks + (Math.random() * 10000)}>
+                        <input type="checkbox" defaultChecked={filter?.instocks == instocks} onClick={function (e) {
+                          if (e.target.checked) {
+                            const filters = filter;
+                            filters.instocks = instocks;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          } else {
+                            const filters = filter;
+                            delete filters.instocks;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          }
+                        }} style={{ marginRight: '5px' }} />
+                        <span>{instocks}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <hr
+                  style={{
+                    borderTop: "1px solid #000000",
+                    marginTop: "6px",
+                    marginBottom: "6px",
+                  }}
+                />
+                <div>
+                  <h4>Price</h4>
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <input onChange={(e) => {
+                      if (!e.target.checked) {
+                        const filters = filter;
+                        delete filters.price;
+
+                        window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                        setfilter(filters);
+                        setLoad(true);
+                      } else {
+                        const filters = filter;
+                        filters.price = filter.price || 50;
+
+                        window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                        setfilter(filters);
+                        setLoad(true);
+                      }
+                      setPriceRef(e.target.checked)
+                    }}
+                      type="checkbox"></input>
+                    <Slider
+                      size="small"
+                      min={0}
+                      max={100}
+                      disabled={priceRef != true ? true : false}
+                      defaultValue={filter?.price || 50}
+                      onChange={function (e, val) {
+                        const filters = filter;
+                        filters.price = val;
+
+                        window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                        setfilter(filters);
+                        setLoad(true);
+                      }}
+                      aria-label="Small"
+                      valueLabelDisplay="auto"
+                    />
                   </div>
                 </div>
                 <hr
