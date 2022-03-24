@@ -29,11 +29,24 @@ router.get("/products", (req, res) => {
 // Database CRUD Operations
 // @GET Request the product lists
 // GET
-router.get("/productsfilters/:category", (req, res) => {
-  const { category } = req.params;
+
+router.get("/productsbrands/", (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  Products_Model.find({ category })
+  Products_Model.find().then((data) => {
+    const temp = [];
+    data.filter(item => temp.push(item.brand));
+
+    res.json(temp.filter(temp => temp != null));
+  });
+});
+
+router.get("/productsfilters/:filters", (req, res) => {
+  const { filters } = req.params;
+  res.setHeader("Content-Type", "application/json");
+
+  Products_Model.find(JSON.parse(filters))
     .then((data) => {
+      console.log(data)
       res.status(200).json(data);
     })
     .catch((err) => console.log(err));

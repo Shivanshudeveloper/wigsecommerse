@@ -419,7 +419,8 @@ export default function Dashboard({ location }) {
             noWrap
             className={classes.title}
           >
-            {currentData.name.length > 0 ? "Dashboard" : "Edit Product"}
+            
+            {currentData?.name?.length > 0 ? "Dashboard" : "Edit Product"}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -607,14 +608,20 @@ export default function Dashboard({ location }) {
               </Select>
             </Grid>
             <Grid item xs={6}>
-              <TextField
-                variant="outlined"
-                // required
+              <InputLabel id="demo-simple-select-label">Ship From</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select-outlined"
                 fullWidth
-                label="Ship From"
                 value={shipfrom}
                 onChange={(event) => setshipfrom(event.target.value)}
-              />
+              >
+                <MenuItem value="UK">UK</MenuItem>
+                <MenuItem value="USA">USA</MenuItem>
+                <MenuItem value="China">China</MenuItem>
+                <MenuItem value="France">France</MenuItem>
+                <MenuItem value="Belgium">Belgium</MenuItem>
+              </Select>
             </Grid>
             <Grid item xs={6}>
               <TextField
@@ -627,14 +634,20 @@ export default function Dashboard({ location }) {
               />
             </Grid>
             <Grid item xs={6}>
-              <TextField
-                variant="outlined"
-                // required
-                fullWidth
-                label="Color"
-                value={color}
-                onChange={(event) => setcolor(event.target.value)}
-              />
+            <InputLabel id="demo-simple-select-label">Color</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select-outlined"
+                  fullWidth
+                  value={color}
+                  onChange={(event) => setcolor(event.target.value)}
+                >
+                  <MenuItem value="natural black">natural black</MenuItem>
+                  <MenuItem value="natural brown">natural brown</MenuItem>
+                  <MenuItem value="Blonde">Blonde</MenuItem>
+                  <MenuItem value="Burgundy">Burgundy</MenuItem>
+                  <MenuItem value="Ginger">Ginger</MenuItem>
+                </Select>
             </Grid>
             <Grid item xs={6}>
               <TextField
@@ -670,19 +683,26 @@ export default function Dashboard({ location }) {
                 value={producttype}
                 onChange={(event) => setproducttype(event.target.value)}
               >
-                <MenuItem value="Product Type 1">Product Type 1</MenuItem>
-                <MenuItem value="Product Type 2">Product Type 2</MenuItem>
+                <MenuItem value="Closures">Closures</MenuItem>
+                <MenuItem value="Frontals">Frontals</MenuItem>
+                <MenuItem value="Wigs">Wigs</MenuItem>
+                <MenuItem value="Bundles">Bundles</MenuItem>
+                <MenuItem value="Bundles_and_Closures">Bundles & Closures</MenuItem>
               </Select>
             </Grid>
             <Grid item xs={6}>
-              <TextField
-                variant="outlined"
-                // required
-                fullWidth
-                label="Origin"
-                value={origin}
-                onChange={(event) => setorigin(event.target.value)}
-              />
+            <InputLabel id="demo-simple-select-label">Origin</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select-outlined"
+                  fullWidth
+                  value={origin}
+                  onChange={(event) => setorigin(event.target.value)}
+                >
+                  <MenuItem value="China">China</MenuItem>
+                  <MenuItem value="India">India</MenuItem>
+                  <MenuItem value="Vietnam">Vietnam</MenuItem>
+                </Select>
             </Grid>
             <Grid item xs={6}>
               <InputLabel id="demo-simple-select-label">Texture</InputLabel>
@@ -693,8 +713,16 @@ export default function Dashboard({ location }) {
                 value={texture}
                 onChange={(event) => settexture(event.target.value)}
               >
-                <MenuItem value="Texture 1">Texture 1</MenuItem>
-                <MenuItem value="Texture 2">Texture 2</MenuItem>
+                <MenuItem value="Body Wave">Body Wave</MenuItem>
+                <MenuItem value="Deep Wave">Deep Wave</MenuItem>
+                <MenuItem value="Loose Deep Wave">Loose Deep Wave</MenuItem>
+                <MenuItem value="Loose Wave">Loose Wave</MenuItem>
+                <MenuItem value="Natural Wave">Natural Wave</MenuItem>
+                <MenuItem value="Kinky Curly">Kinky Curly</MenuItem>
+                <MenuItem value="Jerry Curl">Jerry Curl</MenuItem>
+                <MenuItem value="Deep Curly">Deep Curly</MenuItem>
+                <MenuItem value="Kinky Straight">Kinky Straight</MenuItem>
+                <MenuItem value="Afro Hair">Afro Hair</MenuItem>
               </Select>
             </Grid>
             <Grid item xs={6}>
@@ -708,8 +736,8 @@ export default function Dashboard({ location }) {
                 value={basematerial}
                 onChange={(event) => setbasematerial(event.target.value)}
               >
-                <MenuItem value="Base Material 1">Base Material 1</MenuItem>
-                <MenuItem value="Base Material 2">Base Material 2</MenuItem>
+                <MenuItem value="Silk">Silk</MenuItem>
+                <MenuItem value="Silicone">Silicone</MenuItem>
               </Select>
             </Grid>
             <Grid item xs={6}>
@@ -721,8 +749,10 @@ export default function Dashboard({ location }) {
                 value={lacetype}
                 onChange={(event) => setlacetype(event.target.value)}
               >
-                <MenuItem value="Lace Type 1">Lace Type 1</MenuItem>
-                <MenuItem value="Lace Type 2">Lace Type 2</MenuItem>
+                <MenuItem value="Light Brown">Light Brown</MenuItem>
+                <MenuItem value="Medium Brown">Medium Brown</MenuItem>
+                <MenuItem value="Transparent">Transparent</MenuItem>
+                <MenuItem value="HD">HD</MenuItem>
               </Select>
             </Grid>
             <Grid item xs={6}>
@@ -734,69 +764,79 @@ export default function Dashboard({ location }) {
                 value={preplucked}
                 onChange={(event) => setpreplucked(event.target.value)}
               >
-                <MenuItem value="Preplucked 1">Preplucked 1</MenuItem>
-                <MenuItem value="Preplucked 2">Preplucked 2</MenuItem>
+                <MenuItem value="Yes">Yes</MenuItem>
+                <MenuItem value="No">No</MenuItem>
               </Select>
             </Grid>
             <Grid item xs={6}>
-              <TextField
-                variant="outlined"
-                // required
-                fullWidth
-                label="Bleached Knots"
-                value={bleachedKnots}
-                onChange={(event) => setbleachedKnots(event.target.value)}
-              />
+              <InputLabel id="demo-simple-select-label">Bleached Knots</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select-outlined"
+                  fullWidth
+                  value={bleachedKnots}
+                  onChange={(event) => setbleachedKnots(event.target.value)}
+                >
+                  <MenuItem value="Yes">Yes</MenuItem>
+                  <MenuItem value="No">No</MenuItem>
+                </Select>
             </Grid>
             <Grid item xs={6}>
-              <TextField
-                variant="outlined"
-                // required
+              <InputLabel id="demo-simple-select-label">Baby Hairs</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select-outlined"
                 fullWidth
-                label="Baby Hairs"
                 value={babyHairs}
                 onChange={(event) => setbabyHairs(event.target.value)}
-              />
+              >
+                <MenuItem value="Yes">Yes</MenuItem>
+                <MenuItem value="No">No</MenuItem>
+              </Select>
             </Grid>
             <Grid item xs={6}>
-              <TextField
-                variant="outlined"
-                // required
-                fullWidth
-                label="Parting"
-                value={parting}
-                onChange={(event) => setparting(event.target.value)}
-              />
+            <InputLabel id="demo-simple-select-label">Closure Size</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select-outlined"
+                  fullWidth
+                  value={closureSize}
+                  onChange={(event) => setclosureSize(event.target.value)}
+                >
+                  <MenuItem value="4 x 4">4 x 4</MenuItem>
+                  <MenuItem value="5 x 5">5 x 5</MenuItem>
+                  <MenuItem value="6 x 6">6 x 6</MenuItem>
+                  <MenuItem value="7 x 7">7 x 7</MenuItem>
+                </Select>
             </Grid>
             <Grid item xs={6}>
-              <TextField
-                variant="outlined"
-                // required
-                fullWidth
-                label="Closure Size"
-                value={closureSize}
-                onChange={(event) => setclosureSize(event.target.value)}
-              />
+            <InputLabel id="demo-simple-select-label">Frontal Size</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select-outlined"
+                  fullWidth
+                  value={frontalSize}
+                  onChange={(event) => setfrontalSize(event.target.value)}
+                >
+                  <MenuItem value="13 x 4">13 x 4</MenuItem>
+                  <MenuItem value="13 x 6">13 x 6</MenuItem>
+                  <MenuItem value="360">360</MenuItem>
+                </Select>
             </Grid>
             <Grid item xs={6}>
-              <TextField
-                variant="outlined"
-                // required
-                fullWidth
-                label="Frontal Size"
-                value={frontalSize}
-                onChange={(event) => setfrontalSize(event.target.value)}
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                variant="outlined"
-                // required
-                fullWidth
-                label="Density"
-                value={density}
-                onChange={(event) => setdensity(event.target.value)}
-              />
+            <InputLabel id="demo-simple-select-label">Density</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select-outlined"
+                  fullWidth
+                  value={density}
+                  onChange={(event) => setdensity(event.target.value)}  
+                >
+                  <MenuItem value="130%">130%</MenuItem>
+                  <MenuItem value="150%">150%</MenuItem>
+                  <MenuItem value="180%">180%</MenuItem>
+                  <MenuItem value="200%">200%</MenuItem>
+                </Select>
             </Grid>
 
             <center>
