@@ -721,6 +721,40 @@ const Home = ({ location }) => {
                   }}
                 />
                 <div>
+                  <h4>Length</h4>
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    {Array.from(new Set(["Very short (5-7”)", "Short (6-10”)", "Medium (12-14”)", "Long (16-18”)", "Extra Long (20-22”)", "Super long (24+”)"])).map(lengths => (
+                      <div style={{ margin: '0 10px' }} key={lengths + (Math.random() * 10000)}>
+                        <input type="checkbox" defaultChecked={filter?.length == lengths} onClick={function (e) {
+                          if (e.target.checked) {
+                            const filters = filter;
+                            filters.length = lengths;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          } else {
+                            const filters = filter;
+                            delete filters.length;
+
+                            window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
+                            setfilter(filters);
+                            setLoad(true);
+                          }
+                        }} style={{ marginRight: '5px' }} />
+                        <span>{lengths}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <hr
+                  style={{
+                    borderTop: "1px solid #000000",
+                    marginTop: "6px",
+                    marginBottom: "6px",
+                  }}
+                />
+                <div>
                   <h4>Price</h4>
                   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                     <input onChange={(e) => {

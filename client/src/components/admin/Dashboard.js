@@ -624,14 +624,21 @@ export default function Dashboard({ location }) {
               </Select>
             </Grid>
             <Grid item xs={6}>
-              <TextField
-                variant="outlined"
-                // required
+            <InputLabel id="demo-simple-select-label">Length</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select-outlined"
                 fullWidth
-                label="Length"
                 value={length}
                 onChange={(event) => setlength(event.target.value)}
-              />
+              >
+                <MenuItem value="Very short (5-7”)">Very short (5-7”)</MenuItem>
+                <MenuItem value="Short (6-10”)">Short (6-10”)</MenuItem>
+                <MenuItem value="Medium (12-14”)">Medium (12-14”)</MenuItem>
+                <MenuItem value="Long (16-18”)">Long (16-18”)</MenuItem>
+                <MenuItem value="Extra Long (20-22”)">Extra Long (20-22”)</MenuItem>
+                <MenuItem value="Super long (24+”)">Super long (24+”)</MenuItem>
+              </Select>
             </Grid>
             <Grid item xs={6}>
             <InputLabel id="demo-simple-select-label">Color</InputLabel>
