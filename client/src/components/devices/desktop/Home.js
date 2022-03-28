@@ -149,6 +149,7 @@ const useStyles = makeStyles((theme) => ({
   },
   inputfield:{
     padding: "5px 45px",
+    width:"100%",
  
     borderRadius: "7px",
   }
@@ -871,7 +872,9 @@ const Home = ({ location }) => {
                         }}
                       />
                       <div>
-                        <h4>Hair Origin</h4>
+                        <h4>
+                          
+                        </h4>
                         <hr
                           style={{
                             borderTop: "0.5px solid #808080",
@@ -881,15 +884,50 @@ const Home = ({ location }) => {
                         />
                         {
                           ["Brazilian Hair", "Cambodian Hair", "European Hair", "Indian Hair", "Malaysian Hair", "Mongolian Hair", "Peruvian Hair", "Vietnamese Hair", "Synthetic Hair"].map(type => {
-                            return <><h5>{type}</h5>
-                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-                                {["Product Type", "Texture"].map(brand => (
-                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
-                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
-                                    <span>{brand}</span>
-                                  </div>
-                                ))}
-                              </div></>
+                            return <><h4 style={{ margin: '10px',fontWeight:"600px" }}>{type} - </h4>
+                            <h5 style={{ margin: '10px',fontWeight:"300px" }}>1) Product Type</h5>
+
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <div style={{ margin: '0 10px',width:"100%" }}>
+                                <select name="" id="" className={classes.inputfield} onChange={(e)=>{
+                                  const value = e.target.value;
+                                  console.log(value)
+                                  console.log(type)
+                                }}>
+                                  <option value="producttype">Closures</option>
+                                  <option value="texture">Frontals</option>
+                                  <option value="texture">Wigs</option>
+                                  <option value="texture">Bundles</option>
+                                  <option value="texture">Bundles and closure</option>
+
+                                </select>
+                                  
+                                </div>
+                            </div>
+                            <h5 style={{ margin: '10px',fontWeight:"300px" }}>2) Texture</h5>
+
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <div style={{ margin: '0 10px',width:"100%" }}>
+                                <select name="" id="" className={classes.inputfield} onChange={(e)=>{
+                                  const value = e.target.value;
+                                  console.log(value)
+                                  console.log(type)
+                                }}>
+                                  <option value="producttype">Body Wave</option>
+                                  <option value="texture">Deep Wave</option>
+                                  <option value="texture">Loose Deep Wave</option>
+                                  <option value="texture">Loose Wave</option>
+                                  <option value="texture">Natural Wave</option>
+                                  <option value="texture">Kinky Curly</option>
+                                  <option value="texture">Deep Curly</option>
+                                  <option value="texture">Afro Hair</option>
+                                  
+  
+                                </select>
+                                  
+                                </div>
+                            </div>
+                              </>
                           })
                         }
                       </div>
@@ -911,15 +949,46 @@ const Home = ({ location }) => {
                         />
                         {
                           ["Body Wave", "Deep Wave", "Loose Deep Wave", "Loose Wave", "Natural Wave", "Kinky Wave", "Jerry Wave", "Deep Wave", "Kinky Straight", "Afro Hair"].map(type => {
-                            return <><h5>{type}</h5>
-                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-                                {["Product Type", "Origin"].map(brand => (
-                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
-                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
-                                    <span>{brand}</span>
+                            return <>
+                                  <h4 style={{ margin: '10px',fontWeight:"600px" }}>{type} - </h4>
+                                  <h5 style={{ margin: '10px',fontWeight:"300px" }}>1) Product Type</h5>
+
+                                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                      <div style={{ margin: '0 10px' ,width:"100%"}}>
+                                      <select name="" id="" className={classes.inputfield} onChange={(e)=>{
+                                        const value = e.target.value;
+                                        console.log(value)
+                                        console.log(type)
+                                      }}>
+                                        <option value="producttype">Closures</option>
+                                        <option value="texture">Frontals</option>
+                                        <option value="texture">Wigs</option>
+                                        <option value="texture">Bundles</option>
+                                        <option value="texture">Bundles and closure</option>
+
+                                      </select>
+                                        
+                                      </div>
                                   </div>
-                                ))}
-                              </div></>
+                                  <h5 style={{ margin: '10px',fontWeight:"300px" }}>2) orgin</h5>
+
+                                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                      <div style={{ margin: '0 10px' ,width:"100%"}}>
+                                      <select name="" id="" className={classes.inputfield} onChange={(e)=>{
+                                        const value = e.target.value;
+                                        console.log(value)
+                                        console.log(type)
+                                      }}>
+                                        <option value="producttype">China</option>
+                                        <option value="texture">India</option>
+                                        <option value="texture">vietnam</option>
+        
+                                      </select>
+                                        
+                                      </div>
+                                  </div>
+                            
+                              </>
                           })
                         }
                       </div>
@@ -941,15 +1010,24 @@ const Home = ({ location }) => {
                         />
                         {
                           ["4*4", "5*5", "6*6", "7*7"].map(type => {
-                            return <><h5>{type}</h5>
-                              <div className={classes.filterDiv}>
-                                {["Origin", "Texture", "Base Material", "Lace Type", "Preplucked", "Bleached knots", "Bleached knots", "Parting"].map(brand => (
-                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
-                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
-                                    <span>{brand}</span>
+                            return <><h5 style={{ margin: '10px 0px' }} >{type}</h5>
+                             
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                  <div style={{ margin: '0 10px',width:"100%" }}>
+                                  <select name="" id="" className={classes.inputfield}>
+                                    <option value="volvo">Origin</option>
+                                    <option value="saab">Texture</option>
+                                    <option value="mercedes">Base Material</option>
+                                    <option value="audi">Lace Type</option>
+                                    <option value="audi">Preplucked</option>
+                                    <option value="audi">Bleached knots</option>
+                                    <option value="audi">Bleached knots</option>
+                                    <option value="audi">Parting</option>
+                                  </select>
                                   </div>
-                                ))}
-                              </div></>
+                              </div>
+                                
+                              </>
                           })
                         }
                       </div>
@@ -971,15 +1049,22 @@ const Home = ({ location }) => {
                         />
                         {
                           ["13*4", "13*6", "360"].map(type => {
-                            return <><h5>{type}</h5>
-                              <div className={classes.filterDiv}s>
-                                {["Origin", "Texture", "Base Material", "Lace Type", "Preplucked", "Bleached knots", "Bleached knots", "Parting"].map(brand => (
-                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
-                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
-                                    <span>{brand}</span>
-                                  </div>
-                                ))}
-                              </div></>
+                            return <><h5 style={{ margin: '10px 0px' }} >{type}</h5>
+                             
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <div style={{ margin: '0 10px',width:"100%" }}>
+                                <select name="" id="" className={classes.inputfield}>
+                                  <option value="volvo">Origin</option>
+                                  <option value="saab">Texture</option>
+                                  <option value="mercedes">Base Material</option>
+                                  <option value="audi">Lace Type</option>
+                                  <option value="audi">Preplucked</option>
+                                  <option value="audi">Bleached knots</option>
+                                  <option value="audi">Bleached knots</option>
+                                  <option value="audi">Parting</option>
+                                </select>
+                                </div>
+                            </div></>
                           })
                         }
                       </div>
@@ -1005,15 +1090,22 @@ const Home = ({ location }) => {
                             "4*4 & 3 Bundles", "5*5 & 3 Bundles", "6*6 & 3 Bundles", "7*7 & 3 Bundles",
                             "4*4 & 4 Bundles", "5*5 & 4 Bundles", "6*6 & 4 Bundles", "7*7 & 4 Bundles"
                           ].map(type => {
-                            return <><h5>{type}</h5>
-                              <div className={classes.filterDiv}>
-                                {["Origin", "Texture", "Base Material", "Lace Type", "Preplucked", "Bleached knots", "Bleached knots", "Parting"].map(brand => (
-                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
-                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
-                                    <span>{brand}</span>
-                                  </div>
-                                ))}
-                              </div></>
+                            return <><h5 style={{ margin: '10px 0px' }} >{type}</h5>
+                             
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <div style={{ margin: '0 10px',width:"100%" }}>
+                                <select name="" id="" className={classes.inputfield}>
+                                  <option value="volvo">Origin</option>
+                                  <option value="saab">Texture</option>
+                                  <option value="mercedes">Base Material</option>
+                                  <option value="audi">Lace Type</option>
+                                  <option value="audi">Preplucked</option>
+                                  <option value="audi">Bleached knots</option>
+                                  <option value="audi">Bleached knots</option>
+                                  <option value="audi">Parting</option>
+                                </select>
+                                </div>
+                            </div></>
                           })
                         }
                       </div>
@@ -1035,15 +1127,47 @@ const Home = ({ location }) => {
                         />
                         {
                           ["Single Bundle", "2 Bundles", "3 Bundles", "4 Bundles"].map(type => {
-                            return <><h5>{type}</h5>
-                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-                                {["Origin", "Texture"].map(brand => (
-                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
-                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
-                                    <span>{brand}</span>
-                                  </div>
-                                ))}
-                              </div></>
+                            return <><h4 style={{ margin: '10px',fontWeight:"600px" }}>{type} - </h4>
+                            <h5 style={{ margin: '10px',fontWeight:"300px" }}>1) Origin</h5>
+
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <div style={{ margin: '0 10px',width:"100%" }}>
+                                <select name="" id="" className={classes.inputfield} onChange={(e)=>{
+                                  const value = e.target.value;
+                                  console.log(value)
+                                  console.log(type)
+                                }}>
+                                  <option value="producttype">China</option>
+                                        <option value="texture">India</option>
+                                        <option value="texture">vietnam</option>
+
+                                </select>
+                                  
+                                </div>
+                            </div>
+                            <h5 style={{ margin: '10px',fontWeight:"300px" }}>2) Texture</h5>
+
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <div style={{ margin: '0 10px',width:"100%" }}>
+                                <select name="" id="" className={classes.inputfield} onChange={(e)=>{
+                                  const value = e.target.value;
+                                  console.log(value)
+                                  console.log(type)
+                                }}>
+                                  <option value="producttype">Body Wave</option>
+                                  <option value="texture">Deep Wave</option>
+                                  <option value="texture">Loose Deep Wave</option>
+                                  <option value="texture">Loose Wave</option>
+                                  <option value="texture">Natural Wave</option>
+                                  <option value="texture">Kinky Curly</option>
+                                  <option value="texture">Deep Curly</option>
+                                  <option value="texture">Afro Hair</option>
+                                  
+  
+                                </select>
+                                  
+                                </div>
+                            </div></>
                           })
                         }
                       </div>
@@ -1066,28 +1190,39 @@ const Home = ({ location }) => {
                         {
                           ["U Part"].map(type => {
                             return <><h5>{type}</h5>
-                              <div className={classes.filterDiv}>
-                                {["Origin", "Texture"].map(brand => (
-                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
-                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
-                                    <span>{brand}</span>
-                                  </div>
-                                ))}
-                              </div></>
+                              
+                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <div style={{ margin: '10px 0px',width:"100%" }}>
+                                <select name="" id="" className={classes.inputfield}>
+                                  <option value="volvo">Origin</option>
+                                  <option value="saab">Texture</option>
+                                 
+                                </select>
+                                </div>
+                            </div>
+                             </>
                           })
                         }
                         {
 
                           ["Closure Wings", "Frontal Wings"].map(type => {
-                              return <><h5>{type}</h5>
-                            <div className={classes.filterDiv}>
-                              {["Origin", "Texture", "Lace Type", "Closure Type", "Preplucked", "Bleached Knots", "Baby Hairs", "Density"].map(brand => (
-                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
-                                  <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
-                                  <span>{brand}</span>
+                              return <><h5 >{type}</h5>
+                        
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <div style={{ margin: '10px 0px',width:"100%" }}>
+                                <select name="" id="" className={classes.inputfield}>
+                                  <option value="volvo">Origin</option>
+                                  <option value="saab">Texture</option>
+                                  <option value="mercedes">Base Material</option>
+                                  <option value="audi">Lace Type</option>
+                                  <option value="audi">Preplucked</option>
+                                  <option value="audi">Bleached knots</option>
+                                  <option value="audi">Bleached knots</option>
+                                  <option value="audi">Parting</option>
+                                </select>
                                 </div>
-                              ))}
-                            </div></>
+                            </div>
+                           </>
                         })
                         }
                       </div>
@@ -1109,17 +1244,56 @@ const Home = ({ location }) => {
                         />
                         {
                           ["Clip Ins", "Ponytails", "Microlinks", "Nano Rings"].map(type => {
-                            return <><h5>{type}</h5>
-                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-                                {["Origin", "Texture"].map(brand => (
-                                  <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
-                                    <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
-                                    <span>{brand}</span>
-                                  </div>
-                                ))}
-                              </div></>
+                            return <><h4 style={{ margin: '10px',fontWeight:"600px" }}>{type} - </h4>
+                            <h5 style={{ margin: '10px',fontWeight:"300px" }}>1) Origin</h5>
+
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <div style={{ margin: '0 10px',width:"100%" }}>
+                                <select name="" id="" className={classes.inputfield} onChange={(e)=>{
+                                  const value = e.target.value;
+                                  console.log(value)
+                                  console.log(type)
+                                }}>
+                                  <option value="producttype">China</option>
+                                        <option value="texture">India</option>
+                                        <option value="texture">vietnam</option>
+
+                                </select>
+                                  
+                                </div>
+                            </div>
+                            <h5 style={{ margin: '10px',fontWeight:"300px" }}>2) Texture</h5>
+
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                                <div style={{ margin: '0 10px' ,width:"100%"}}>
+                                <select name="" id="" className={classes.inputfield} onChange={(e)=>{
+                                  const value = e.target.value;
+                                  console.log(value)
+                                  console.log(type)
+                                }}>
+                                  <option value="producttype">Body Wave</option>
+                                  <option value="texture">Deep Wave</option>
+                                  <option value="texture">Loose Deep Wave</option>
+                                  <option value="texture">Loose Wave</option>
+                                  <option value="texture">Natural Wave</option>
+                                  <option value="texture">Kinky Curly</option>
+                                  <option value="texture">Deep Curly</option>
+                                  <option value="texture">Afro Hair</option>
+                                  
+  
+                                </select>
+                                  
+                                </div>
+                            </div></>
                           })
                         }
+                        <hr
+                        style={{
+                          borderTop: "1px solid #000000",
+                          marginTop: "6px",
+                          marginBottom: "6px",
+                        }}
+                      />
                       </div>
                       <div>
                         <h4>Closure Wigs</h4>
@@ -1137,7 +1311,7 @@ const Home = ({ location }) => {
                             <h5 style={{ margin: '10px' }}>{type}</h5>
                             
                               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-                                  <div style={{ margin: '0 10px' }}>
+                                  <div style={{ margin: '0 10px' ,width:"100%"}}>
                                   <select name="" id="" className={classes.inputfield} onChange={(e)=>{
                                     const value = e.target.value;
                                     console.log(value)
@@ -1176,7 +1350,7 @@ const Home = ({ location }) => {
 
                             <h5 style={{ margin: '10px' }}>Lace Front Wigs</h5>
                               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-                                  <div style={{ margin: '0 10px' }}>
+                                  <div style={{ margin: '0 10px',width:"100%" }}>
                                   <select name="" id="" className={classes.inputfield}>
                                     <option value="volvo">Origin</option>
                                     <option value="saab">Texture</option>
@@ -1197,7 +1371,7 @@ const Home = ({ location }) => {
                             <h5 style={{ margin: '10px' }}>{type}</h5>
                             
                               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-                                  <div style={{ margin: '0 10px' }}>
+                                  <div style={{ margin: '0 10px',width:"100%" }}>
                                   <select name="" id="" className={classes.inputfield} >
                                     <option value="volvo">Origin</option>
                                     <option value="saab">Texture</option>
@@ -1226,7 +1400,7 @@ const Home = ({ location }) => {
               <div style={{marginTop: "20px"}}></div>
             </Grid>
             <Grid item xs={9} md={25}>
-              <Grid container spacing={5}>
+              <Grid container spacing={3}>
                 {showProductList()}
               </Grid>
             </Grid>
