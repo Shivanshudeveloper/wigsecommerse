@@ -48,6 +48,27 @@ const ex28 = {
 };
 
 const useStyles = makeStyles((theme) => ({
+  scrollBar: {
+    '&::-webkit-scrollbar': {
+      width: '0.4em'
+    },
+    '&::-webkit-scrollbar-track': {
+      '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)'
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: 'rgba(0,0,0,.1)',
+      outline: '1px solid slategrey'
+    }
+  },
+  filterDiv:{
+    display: 'flex',
+    margin:"10px",
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    
+
+  },
+  
   root: {
     padding: "2px 4px",
     display: "flex",
@@ -55,9 +76,16 @@ const useStyles = makeStyles((theme) => ({
     width: 600,
     marginTop: "10px",
   },
+  filterSection:{
+    boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+    borderRadius:"15px",
+    padding: "15px",
+  },
+  
   priceroot: {
     width: 300,
   },
+  
   slideroot: {
     margin: "10px",
   },
@@ -77,20 +105,47 @@ const useStyles = makeStyles((theme) => ({
   },
   pos: {
     marginBottom: 12,
-    color: "#000000",
-    textAlign: "center",
+  
+    padding: "10px 15px",
+    paddingBottom:"0px",
     fontWeight: "bold",
-    fontSize: "3vh",
+    fontSize: "20px",
+    fontWeight:"300px",
+  },
+  undercardroot: {
+    padding: "10px",
+
   },
   cardroot: {
-    minWidth: 230,
+    maxWidth: 300,
+
+    minWidth: 300,
     height: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+    boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+    borderRadius:"15px",
+
+  },buttonStyle: {
+    width: "100%",
+    border: "2px solid gray",
+    margin: "10px",
+    borderRadius:"10px",
+
+    
+
   },
+  
   gridroot: {
     flexGrow: 1,
+    
+  },
+  outercardroot: {
+    flexGrow: "0",
+    maxWidth: "33%",
+    flexBasis: "25%",
+    
   },
   inputfield:{
     padding: "5px 45px",
@@ -114,13 +169,13 @@ const ProductList = ({ addWishlist, addItem, product }) => {
   eE += mykey.final("hex");
 
   return (
-    <Grid item xs={3}>
+    <Grid item xs={3} className={classes.outercardroot}>
       <Card className={classes.cardroot} variant="outlined">
-        <CardContent>
+        <CardContent className={classes.undercardroot}>
           <center>
             <a href={`/product?i=${eE}`}>
               <img
-                style={{ width: "150px", height: "220px" }}
+                style={{ width: "230px", height: "230px",objectFit:"cover", }}
                 src={product.images[0]}
                 alt="product image"
               />
@@ -136,20 +191,16 @@ const ProductList = ({ addWishlist, addItem, product }) => {
           </Typography>
         </CardContent>
 
-        <div style={{ padding: "4px" }}>
-          <Button onClick={() => addItem(product)} variant="outlined" fullWidth>
+        <div style={{ padding: "4px",width:"275px" }}>
+          <Button className={classes.buttonStyle} onClick={() => addItem(product)} >
             Add to Compare
           </Button>
           <br />
           <Button
             onClick={() => addWishlist(product)}
-            style={{
-              marginTop: "2px",
-              backgroundColor: "#000000",
-              color: "#ffffff",
-            }}
-            variant="outlined"
-            fullWidth
+            className={classes.buttonStyle}
+           
+            
           >
             Add to Wishlist
           </Button>
@@ -203,6 +254,7 @@ const Home = ({ location }) => {
       axios
         .get(`${API_SERVICE}/api/v1/main/products`)
         .then((response) => {
+          
           setProducts(response.data);
         })
         .catch((err) => console.log(err));
@@ -366,6 +418,7 @@ const Home = ({ location }) => {
     await axios
       .get(`${API_SERVICE}/api/v1/main/search/${searchValue}`)
       .then((response) => {
+        
         setProducts(response.data);
       })
       .catch((err) => console.log(err));
@@ -457,27 +510,28 @@ const Home = ({ location }) => {
             <SplideSlide>
               <img
                 width="100%"
-                src="https://www.samuel-windsor.co.uk/images/73/choose-formal-shirt-header.jpg"
+                src="https://images.unsplash.com/photo-1558077107-4d42e0ddc8dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
                 alt="Image 1"
               />
             </SplideSlide>
             <SplideSlide>
               <img
                 width="100%"
-                src="https://www.samuel-windsor.co.uk/images/73/choose-formal-shirt-header.jpg"
+                src="https://images.unsplash.com/photo-1605378251083-c5e7620330c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                 alt="Image 2"
               />
             </SplideSlide>
           </Splide>
         </Paper>
       </center>
-      <Container style={{ marginTop: "20px" }}>
+      <Container style={{ marginTop: "20px",maxWidth:"2000px" }}>
         <div className={classes.gridroot}>
-          <Grid container spacing={3}>
-            <Grid style={ex28} item xs={3}>
+          <Grid container spacing={5}>
+            <Grid style={ex28} item xs={3} >
               <Card
-                style={{ minWidth: "100%", padding: "6px" }}
+                style={{ minWidth: "100%", padding: "30px" }}
                 variant="outlined"
+                className={classes.filterSection}
               >
                 <h3>FILTER BY</h3>
                 <hr
@@ -489,7 +543,7 @@ const Home = ({ location }) => {
                 />
                 <div>
                   <h4>Brands</h4>
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex',margin:"10px", alignItems: 'center', flexWrap: 'wrap' }}>
                     {Array.from(brands).map(brand => (
                       <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
                         <input type="checkbox" defaultChecked={filter?.brand == brand} onClick={function (e) {
@@ -523,7 +577,7 @@ const Home = ({ location }) => {
                 />
                 <div>
                   <h4>Color</h4>
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex', margin:"10px",alignItems: 'center', flexWrap: 'wrap' }}>
                     {Array.from(new Set(["Jet black", "Natural black", "Brown", "Blonde", "Red", "Burgundy"])).map(color => (
                       <div style={{ margin: '0 10px' }} key={color + (Math.random() * 10000)}>
                         <input type="checkbox" defaultChecked={filter?.color == color.toLowerCase()} onClick={function (e) {
@@ -557,12 +611,13 @@ const Home = ({ location }) => {
                 />
                 <div>
                   <h4>Ship From</h4>
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex',margin:"10px", alignItems: 'center', flexWrap: 'wrap' }}>
                     {Array.from(new Set(["UK", "USA", "China", "France"])).map(shipfrom => (
                       <div style={{ margin: '0 10px' }} key={shipfrom + (Math.random() * 10000)}>
                         <input type="checkbox" defaultChecked={filter?.shipfrom == shipfrom} onClick={function (e) {
                           if (e.target.checked) {
                             const filters = filter;
+                            console.log(filter)
                             filters.shipfrom = shipfrom;
 
                             window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters));
@@ -591,7 +646,7 @@ const Home = ({ location }) => {
                 />
                 <div>
                   <h4>Free Shipping</h4>
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex', margin:"10px",alignItems: 'center', flexWrap: 'wrap' }}>
                     {Array.from(new Set(["Yes"])).map(freeshipping => (
                       <div style={{ margin: '0 10px' }} key={freeshipping + (Math.random() * 10000)}>
                         <input type="checkbox" defaultChecked={filter?.freeshipping == freeshipping} onClick={function (e) {
@@ -625,7 +680,7 @@ const Home = ({ location }) => {
                 />
                 <div>
                   <h4>Free Return</h4>
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <div className={classes.filterDiv} style={{ display: 'flex',margin:"10px", alignItems: 'center', flexWrap: 'wrap' }}>
                     {Array.from(new Set(["Yes"])).map(freereturn => (
                       <div style={{ margin: '0 10px' }} key={freereturn + (Math.random() * 10000)}>
                         <input type="checkbox" defaultChecked={filter?.freereturn == freereturn} onClick={function (e) {
@@ -659,7 +714,7 @@ const Home = ({ location }) => {
                 />
                 <div>
                   <h4>On Sale</h4>
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex', margin:"10px",alignItems: 'center', flexWrap: 'wrap' }}>
                     {Array.from(new Set(["Yes"])).map(onsale => (
                       <div style={{ margin: '0 10px' }} key={onsale + (Math.random() * 10000)}>
                         <input type="checkbox" defaultChecked={filter?.onsale == onsale} onClick={function (e) {
@@ -693,7 +748,7 @@ const Home = ({ location }) => {
                 />
                 <div>
                   <h4>In Stock</h4>
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex', margin:"10px", alignItems: 'center', flexWrap: 'wrap' }}>
                     {Array.from(new Set(["Yes"])).map(instocks => (
                       <div style={{ margin: '0 10px' }} key={instocks + (Math.random() * 10000)}>
                         <input type="checkbox" defaultChecked={filter?.instocks == instocks} onClick={function (e) {
@@ -727,7 +782,7 @@ const Home = ({ location }) => {
                 />
                 <div>
                   <h4>Length</h4>
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex',margin:"10px", alignItems: 'center', flexWrap: 'wrap' }}>
                     {Array.from(new Set(["Very short (5-7”)", "Short (6-10”)", "Medium (12-14”)", "Long (16-18”)", "Extra Long (20-22”)", "Super long (24+”)"])).map(lengths => (
                       <div style={{ margin: '0 10px' }} key={lengths + (Math.random() * 10000)}>
                         <input type="checkbox" defaultChecked={filter?.length == lengths} onClick={function (e) {
@@ -761,7 +816,7 @@ const Home = ({ location }) => {
                 />
                 <div>
                   <h4>Price</h4>
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <div className={classes.filterDiv}>
                     <input onChange={(e) => {
                       if (!e.target.checked) {
                         const filters = filter;
@@ -887,7 +942,7 @@ const Home = ({ location }) => {
                         {
                           ["4*4", "5*5", "6*6", "7*7"].map(type => {
                             return <><h5>{type}</h5>
-                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                              <div className={classes.filterDiv}>
                                 {["Origin", "Texture", "Base Material", "Lace Type", "Preplucked", "Bleached knots", "Bleached knots", "Parting"].map(brand => (
                                   <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
                                     <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
@@ -917,7 +972,7 @@ const Home = ({ location }) => {
                         {
                           ["13*4", "13*6", "360"].map(type => {
                             return <><h5>{type}</h5>
-                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                              <div className={classes.filterDiv}s>
                                 {["Origin", "Texture", "Base Material", "Lace Type", "Preplucked", "Bleached knots", "Bleached knots", "Parting"].map(brand => (
                                   <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
                                     <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
@@ -951,7 +1006,7 @@ const Home = ({ location }) => {
                             "4*4 & 4 Bundles", "5*5 & 4 Bundles", "6*6 & 4 Bundles", "7*7 & 4 Bundles"
                           ].map(type => {
                             return <><h5>{type}</h5>
-                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                              <div className={classes.filterDiv}>
                                 {["Origin", "Texture", "Base Material", "Lace Type", "Preplucked", "Bleached knots", "Bleached knots", "Parting"].map(brand => (
                                   <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
                                     <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
@@ -1011,7 +1066,7 @@ const Home = ({ location }) => {
                         {
                           ["U Part"].map(type => {
                             return <><h5>{type}</h5>
-                              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                              <div className={classes.filterDiv}>
                                 {["Origin", "Texture"].map(brand => (
                                   <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
                                     <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
@@ -1025,7 +1080,7 @@ const Home = ({ location }) => {
 
                           ["Closure Wings", "Frontal Wings"].map(type => {
                               return <><h5>{type}</h5>
-                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                            <div className={classes.filterDiv}>
                               {["Origin", "Texture", "Lace Type", "Closure Type", "Preplucked", "Bleached Knots", "Baby Hairs", "Density"].map(brand => (
                                   <div style={{ margin: '0 10px' }} key={brand + (Math.random() * 10000)}>
                                   <input type="checkbox" defaultChecked={filter?.brand == brand} style={{ marginRight: '5px' }} />
@@ -1083,14 +1138,18 @@ const Home = ({ location }) => {
                             
                               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                                   <div style={{ margin: '0 10px' }}>
-                                  <select name="" id="" className={classes.inputfield}>
-                                    <option value="volvo">Origin</option>
-                                    <option value="saab">Texture</option>
-                                    <option value="mercedes">Lace Type</option>
-                                    <option value="audi">Bleached knots</option>
-                                    <option value="audi">Baby hairs</option>
-                                    <option value="audi">Parting</option>
-                                    <option value="audi">Density</option>
+                                  <select name="" id="" className={classes.inputfield} onChange={(e)=>{
+                                    const value = e.target.value;
+                                    console.log(value)
+                                    console.log(type)
+                                  }}>
+                                    <option value="Origin">Origin</option>
+                                    <option value="Texture">Texture</option>
+                                    <option value="Lace Type">Lace Type</option>
+                                    <option value="Bleached knots">Bleached knots</option>
+                                    <option value="Baby hairs">Baby hairs</option>
+                                    <option value="Parting">Parting</option>
+                                    <option value="Density">Density</option>
                                   </select>
                                     
                                   </div>
@@ -1166,8 +1225,8 @@ const Home = ({ location }) => {
               </Card>
               <div style={{marginTop: "20px"}}></div>
             </Grid>
-            <Grid item xs={9}>
-              <Grid container spacing={3}>
+            <Grid item xs={9} md={25}>
+              <Grid container spacing={5}>
                 {showProductList()}
               </Grid>
             </Grid>
