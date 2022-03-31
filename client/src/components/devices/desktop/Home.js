@@ -890,15 +890,28 @@ const Home = ({ location }) => {
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                                 <div style={{ margin: '0 10px',width:"100%" }}>
                                 <select name="" id="" className={classes.inputfield} onChange={(e)=>{
-                                  const value = e.target.value;
-                                  console.log(value)
-                                  console.log(type)
+                                  const producttype = e.target.value;
+                                 
+                                 
+                                  const filters = filter;
+                                  const filters2 = filter;
+                                  filters.producttype = producttype;
+                                  const changedtype=type.substring(0, type.indexOf(' '))
+                                  filters2.category = changedtype.toLowerCase();
+                                
+                                  
+                                 
+
+                                  window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters),Math.random() * 10000, "?" + queryString.stringify(filters));
+                     
+                                  setfilter(filters);
+                                  setLoad(true);
                                 }}>
-                                  <option value="producttype">Closures</option>
-                                  <option value="texture">Frontals</option>
-                                  <option value="texture">Wigs</option>
-                                  <option value="texture">Bundles</option>
-                                  <option value="texture">Bundles and closure</option>
+                                  <option value="Closures">Closures</option>
+                                  <option value="Frontals">Frontals</option>
+                                  <option value="Wigs">Wigs</option>
+                                  <option value="Bundles">Bundles</option>
+                                  <option value="Bundles and closure">Bundles and closure</option>
 
                                 </select>
                                   
@@ -909,18 +922,32 @@ const Home = ({ location }) => {
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                                 <div style={{ margin: '0 10px',width:"100%" }}>
                                 <select name="" id="" className={classes.inputfield} onChange={(e)=>{
-                                  const value = e.target.value;
-                                  console.log(value)
-                                  console.log(type)
+                                  const texture = e.target.value;
+                                  console.log(texture)
+                                 
+                                 
+                                  const filters = filter;
+                                  const filters2 = filter;
+                                  filters.texture = texture;
+                                  const changedtype=type.substring(0, type.indexOf(' '))
+                                  filters2.category = changedtype.toLowerCase();
+                                
+                                  
+                                 
+
+                                  window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters),Math.random() * 10000, "?" + queryString.stringify(filters));
+                     
+                                  setfilter(filters);
+                                  setLoad(true);
                                 }}>
-                                  <option value="producttype">Body Wave</option>
-                                  <option value="texture">Deep Wave</option>
-                                  <option value="texture">Loose Deep Wave</option>
-                                  <option value="texture">Loose Wave</option>
-                                  <option value="texture">Natural Wave</option>
-                                  <option value="texture">Kinky Curly</option>
-                                  <option value="texture">Deep Curly</option>
-                                  <option value="texture">Afro Hair</option>
+                                  <option value="Body Wave">Body Wave</option>
+                                  <option value="Deep Wave">Deep Wave</option>
+                                  <option value="Loose Deep Wave">Loose Deep Wave</option>
+                                  <option value="Loose Wave">Loose Wave</option>
+                                  <option value="Natural Wave">Natural Wave</option>
+                                  <option value="Kinky Curly">Kinky Curly</option>
+                                  <option value="Deep Curly">Deep Curly</option>
+                                  <option value="Afro Hair">Afro Hair</option>
                                   
   
                                 </select>
@@ -956,15 +983,29 @@ const Home = ({ location }) => {
                                   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                                       <div style={{ margin: '0 10px' ,width:"100%"}}>
                                       <select name="" id="" className={classes.inputfield} onChange={(e)=>{
-                                        const value = e.target.value;
-                                        console.log(value)
-                                        console.log(type)
+                                        const producttype = e.target.value;
+                                        console.log(producttype)
+                                       
+                                       
+                                        const filters = filter;
+                                        const filters2 = filter;
+                                        filters.producttype = producttype;
+                                        const changedtype=type
+                                        filters2.texture = changedtype
+                                      
+                                        
+                                       
+      
+                                        window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters),Math.random() * 10000, "?" + queryString.stringify(filters));
+                           
+                                        setfilter(filters);
+                                        setLoad(true);
                                       }}>
-                                        <option value="producttype">Closures</option>
-                                        <option value="texture">Frontals</option>
-                                        <option value="texture">Wigs</option>
-                                        <option value="texture">Bundles</option>
-                                        <option value="texture">Bundles and closure</option>
+                                        <option value="Closures">Closures</option>
+                                        <option value="Frontals">Frontals</option>
+                                        <option value="Wigs">Wigs</option>
+                                        <option value="Bundles">Bundles</option>
+                                        <option value="Bundles and closure">Bundles and closure</option>
 
                                       </select>
                                         
@@ -975,13 +1016,27 @@ const Home = ({ location }) => {
                                   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                                       <div style={{ margin: '0 10px' ,width:"100%"}}>
                                       <select name="" id="" className={classes.inputfield} onChange={(e)=>{
-                                        const value = e.target.value;
-                                        console.log(value)
-                                        console.log(type)
+                                        const origin = e.target.value;
+                                        console.log(origin)
+                                       
+                                       
+                                        const filters = filter;
+                                        const filters2 = filter;
+                                        filters.origin = origin;
+                                        const changedtype=type
+                                        filters2.texture = changedtype
+                                      
+                                        
+                                       
+      
+                                        window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters),Math.random() * 10000, "?" + queryString.stringify(filters));
+                           
+                                        setfilter(filters);
+                                        setLoad(true);
                                       }}>
-                                        <option value="producttype">China</option>
-                                        <option value="texture">India</option>
-                                        <option value="texture">vietnam</option>
+                                        <option value="China">China</option>
+                                        <option value="India">India</option>
+                                        <option value="Vietnam">Vietnam</option>
         
                                       </select>
                                         
@@ -1014,7 +1069,25 @@ const Home = ({ location }) => {
                              
                               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                                   <div style={{ margin: '0 10px',width:"100%" }}>
-                                  <select name="" id="" className={classes.inputfield}>
+                                  <select name="" id="" className={classes.inputfield} onChange={(e)=>{
+                                        const origin = e.target.value;
+                                        console.log(origin)
+                                       
+                                       
+                                        const filters = filter;
+                                        const filters2 = filter;
+                                        filters.origin = origin;
+                                        const changedtype=type
+                                        filters2.closureSize = changedtype
+                                      
+                                        
+                                       
+      
+                                        window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters),Math.random() * 10000, "?" + queryString.stringify(filters));
+                           
+                                        setfilter(filters);
+                                        setLoad(true);
+                                      }}>
                                     <option value="volvo">Origin</option>
                                     <option value="saab">Texture</option>
                                     <option value="mercedes">Base Material</option>
@@ -1133,13 +1206,27 @@ const Home = ({ location }) => {
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                                 <div style={{ margin: '0 10px',width:"100%" }}>
                                 <select name="" id="" className={classes.inputfield} onChange={(e)=>{
-                                  const value = e.target.value;
-                                  console.log(value)
-                                  console.log(type)
+                                  const origin = e.target.value;
+                                  console.log(origin)
+                                 
+                                 
+                                  const filters = filter;
+                                  const filters2 = filter;
+                                  filters.origin = origin;
+                                  const changedtype=type
+                                  filters2.category = changedtype
+                                
+                                  
+                                 
+
+                                  window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters),Math.random() * 10000, "?" + queryString.stringify(filters));
+                     
+                                  setfilter(filters);
+                                  setLoad(true);
                                 }}>
-                                  <option value="producttype">China</option>
-                                        <option value="texture">India</option>
-                                        <option value="texture">vietnam</option>
+                                  <option value="China">China</option>
+                                        <option value="India">India</option>
+                                        <option value="Vietnam">Vietnam</option>
 
                                 </select>
                                   
@@ -1150,18 +1237,32 @@ const Home = ({ location }) => {
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                                 <div style={{ margin: '0 10px',width:"100%" }}>
                                 <select name="" id="" className={classes.inputfield} onChange={(e)=>{
-                                  const value = e.target.value;
-                                  console.log(value)
-                                  console.log(type)
+                                  const texture = e.target.value;
+                                  console.log(texture)
+                                 
+                                 
+                                  const filters = filter;
+                                  const filters2 = filter;
+                                  filters.texture = texture;
+                                  const changedtype=type
+                                  filters2.category = changedtype
+                                
+                                  
+                                 
+
+                                  window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters),Math.random() * 10000, "?" + queryString.stringify(filters));
+                     
+                                  setfilter(filters);
+                                  setLoad(true);
                                 }}>
-                                  <option value="producttype">Body Wave</option>
-                                  <option value="texture">Deep Wave</option>
-                                  <option value="texture">Loose Deep Wave</option>
-                                  <option value="texture">Loose Wave</option>
-                                  <option value="texture">Natural Wave</option>
-                                  <option value="texture">Kinky Curly</option>
-                                  <option value="texture">Deep Curly</option>
-                                  <option value="texture">Afro Hair</option>
+                                  <option value="Body Wave">Body Wave</option>
+                                  <option value="Deep Wave">Deep Wave</option>
+                                  <option value="Loose Deep Wave">Loose Deep Wave</option>
+                                  <option value="Loose Wave">Loose Wave</option>
+                                  <option value="Natural Wave">Natural Wave</option>
+                                  <option value="Kinky Curly">Kinky Curly</option>
+                                  <option value="Deep Curly">Deep Curly</option>
+                                  <option value="Afro Hair">Afro Hair</option>
                                   
   
                                 </select>
@@ -1250,13 +1351,27 @@ const Home = ({ location }) => {
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                                 <div style={{ margin: '0 10px',width:"100%" }}>
                                 <select name="" id="" className={classes.inputfield} onChange={(e)=>{
-                                  const value = e.target.value;
-                                  console.log(value)
-                                  console.log(type)
+                                  const origin = e.target.value;
+                                  console.log(origin)
+                                 
+                                 
+                                  const filters = filter;
+                                  const filters2 = filter;
+                                  filters.origin = origin;
+                                  const changedtype=type
+                                  filters2.category = changedtype
+                                
+                                  
+                                 
+
+                                  window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters),Math.random() * 10000, "?" + queryString.stringify(filters));
+                     
+                                  setfilter(filters);
+                                  setLoad(true);
                                 }}>
-                                  <option value="producttype">China</option>
-                                        <option value="texture">India</option>
-                                        <option value="texture">vietnam</option>
+                                  <option value="China">China</option>
+                                        <option value="India">India</option>
+                                        <option value="Vietnam">Vietnam</option>
 
                                 </select>
                                   
@@ -1267,18 +1382,32 @@ const Home = ({ location }) => {
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                                 <div style={{ margin: '0 10px' ,width:"100%"}}>
                                 <select name="" id="" className={classes.inputfield} onChange={(e)=>{
-                                  const value = e.target.value;
-                                  console.log(value)
-                                  console.log(type)
+                                  const texture = e.target.value;
+                                  console.log(origin)
+                                 
+                                 
+                                  const filters = filter;
+                                  const filters2 = filter;
+                                  filters.texture = texture;
+                                  const changedtype=type
+                                  filters2.category = changedtype
+                                
+                                  
+                                 
+
+                                  window.history.pushState("Random URL", Math.random() * 10000, "?" + queryString.stringify(filters),Math.random() * 10000, "?" + queryString.stringify(filters));
+                     
+                                  setfilter(filters);
+                                  setLoad(true);
                                 }}>
-                                  <option value="producttype">Body Wave</option>
-                                  <option value="texture">Deep Wave</option>
-                                  <option value="texture">Loose Deep Wave</option>
-                                  <option value="texture">Loose Wave</option>
-                                  <option value="texture">Natural Wave</option>
-                                  <option value="texture">Kinky Curly</option>
-                                  <option value="texture">Deep Curly</option>
-                                  <option value="texture">Afro Hair</option>
+                                  <option value="Body Wave">Body Wave</option>
+                                  <option value="Deep Wave">Deep Wave</option>
+                                  <option value="Loose Deep Wave">Loose Deep Wave</option>
+                                  <option value="Loose Wave">Loose Wave</option>
+                                  <option value="Natural Wave">Natural Wave</option>
+                                  <option value="Kinky Curly">Kinky Curly</option>
+                                  <option value="Deep Curly">Deep Curly</option>
+                                  <option value="Afro Hair">Afro Hair</option>
                                   
   
                                 </select>
