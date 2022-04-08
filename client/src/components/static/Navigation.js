@@ -570,7 +570,7 @@ const Navigation = () => {
                   </span>
                 </a>
                 <div className="sub-menu">
-                  <div className="sub-menu-item"></div>
+              
                   <div className="sub-menu-item">
                     <ul>
                       <li>
@@ -602,12 +602,9 @@ const Navigation = () => {
                   </span>
                 </a>
                 <div className="sub-menu">
-                  <div className="sub-menu-item">
-                    <h4> </h4>
-                    <ul></ul>
-                  </div>
+                  
                   <div
-                    style={width > 992 ? { paddingLeft: "20vh" } : {}}
+                    
                     className="sub-menu-item"
                   >
                     <h4> </h4>
@@ -644,9 +641,6 @@ const Navigation = () => {
                   </span>
                 </a>
                 <div className="sub-menu">
-                  <div className="sub-menu-item">
-                    <ul></ul>
-                  </div>
                   <div className="sub-menu-item">
                     <ul>
                       <li>
@@ -703,8 +697,6 @@ const Navigation = () => {
                   </span>
                 </a>
                 <div className="sub-menu">
-                  <div className="sub-menu-item"></div>
-                  <div className="sub-menu-item"></div>
                   <div className="sub-menu-item">
                     <h4>Closure Wigs</h4>
                     <ul>
@@ -760,63 +752,6 @@ const Navigation = () => {
                   </span>
                 </a>
                 <div className="sub-menu">
-                  <div className="sub-menu-item">
-                    <ul>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="sub-menu-item">
-                    <ul>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="sub-menu-item">
-                    <ul>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                      <li>
-                        <a href="#"> </a>
-                      </li>
-                    </ul>
-                  </div>
                   <div className="sub-menu-item">
                     <ul>
                       <li>
