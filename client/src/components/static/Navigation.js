@@ -177,6 +177,7 @@ const Navigation = () => {
             // navigate("/dashboard");
             setUserLogin(true);
             handleClose();
+            handleCloseSignUp();
             setFormData({});
           })
           .catch((err) => console.log(err));
